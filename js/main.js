@@ -1,22 +1,42 @@
 const prodURL = 'https://stormy-ocean-79229.herokuapp.com/'
 const devURL = 'http://localhost:8080/'
 
+$(document).ready(function(){
+    $('#showAllBooks').bind("click", getAllBooks);
+    $('#showAllAuthors').bind("click", getAllAuthors)
+});
+
+// $('#showAllBooks').on('click', getAllBooks());
+// $('#showAllAuthors').on('click', getAllAuthors());
+
+
 function getAllBooks(){
-  $.get(prodURL, function(data){
-    $('body').append(
-      `<h1>All Books</h1>`
-    )
+  $('#mainSection').empty();
+  $.get(devURL + 'books/', function(data){
     for(let i = 0; i < data.length; i++){
-      $('body').append(
-        `<div id=${data[i].title}>
+      $('#mainSection').append(
+        `<div class="book" id=${data[i].id}>
+          <img class="bookCover" src="${data[i].coverURL}" alt="Book Cover Photo" height="200" width="100">
           ${data[i].title}<br>
           ${data[i].genre}<br>
-          ${data[i].description}<br>
-          ${data[i].coverURL}<br><br>
+          ${data[i].description}<br><br>
         </div>`
       )
     }
   })
 }
 
-getAllBooks();
+function getAllAuthors(){
+  $('#mainSection').empty();
+  $.get(devURL + 'authors/', function(data){
+    for(let i = 0; i < data.length; i++){
+      $('#mainSection').append(
+        `<div class="author" id=${data[i].id}>
+          <img class="author" src="${data[i].portraitURL}" alt="Author Portrait" height="200" width="100">
+          ${data[i].fname} ${data[i].lname}<br>
+          ${data[i].bio}<br><br>
+        </div>`
+      )
+    }
+  })
+}

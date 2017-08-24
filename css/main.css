@@ -1,0 +1,17 @@
+.logoImg{
+  height: 100%;
+  width: 100%;
+  padding: 0px auto;
+  vertical-align: middle;
+  align-content: center;
+
+}
+span{
+  padding-top: 50%;
+  padding-bottom: 50%;
+}
+
+.nav-title{
+  top: 50% auto;
+  bottom: 50% auto;
+}
