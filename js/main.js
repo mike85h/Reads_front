@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 function getAllBooks(){
   $('#mainSection').empty();
-  $.get(devURL + 'books/', function(data){
+  $.get(prodURL + 'books/', function(data){
     for(let i = 0; i < data.length; i++){
       $('#mainSection').append(
         `<div class="book" id=${data[i].id}>
@@ -28,7 +28,7 @@ function getAllBooks(){
 
 function getAllAuthors(){
   $('#mainSection').empty();
-  $.get(devURL + 'authors/', function(data){
+  $.get(prodURL + 'authors/', function(data){
     for(let i = 0; i < data.length; i++){
       $('#mainSection').append(
         `<div class="author" id=${data[i].id}>
